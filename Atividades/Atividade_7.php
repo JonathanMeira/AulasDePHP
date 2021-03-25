@@ -1,110 +1,123 @@
 <?php
 
-$mesDeNascimento = [
-    "Janeiro" => "Sargento/Sargenta",
-    "Fevereiro" => "Sinistro/Sinistra",
-    "Março" => "Relâmpago",
-    "Abril" => "Assasino/Assasina",
-    "Maio" => "Aniquilador/Aniquiladora",
-    "Junho" => "O homem/A mulher",
-    "Julho" => "Bruxo/Bruxa",
-    "Agosto" => "Cyber",
-    "Setembro" => "Caçador/Caçadora",
-    "Outubro" => "Cérebro",
-    "Novembro" => "Senhor/Senhora",
-    "Dezembro" => "Doutor/Doutora",
+ $primeiroIdentificador = [
+     "Sargento/Sargenta",
+     "Sinistro/Sinistra",
+     "Relâmpago",
+     "Assasino/Assasina",
+     "Aniquilador/Aniquiladora",
+     "O homem/A mulher",
+     "Bruxo/Bruxa",
+     "Cyber",
+     "Caçador/Caçadora",
+     "Cérebro",
+     "Senhor/Senhora",
+     "Doutor/Doutora",
 ];
 
 
-$primeiraLetraDoNome = [
-    "a" => "Escuro/a",
-    "b" => "Elétrico/a",
-    "c" => "Invisível",
-    "d" => "Radioativo/a",
-    "e" => "Voador/a",
-    "f" => "De aço",
-    "g" => "Aterrozidor/a",
-    "h" => "Do submundo",
-    "i" => "Invencível",
-    "j" => "Tempestade",
-    "k" => "Galáctico/a",
-    "l" => "Elástico/a",
-    "m" => "Magnético/a",
-    "n" => "Estelar",
-    "o" => "Noturno/a",
-    "p" => "Iluminado/a",
-    "q" => "Aterrador/a",
-    "r" => "Brilhante/a",
-    "s" => "De Fogo",
-    "t" => "Poderoso/a",
-    "u" => "Derrota mundos",
-    "v" => "De ferro",
-    "w" => "Atômico/a",
-    "x" => "Rasga Céus",
-    "y" => "Psíquico/a",
-    "z" => "Implacável",
+ $segundoIdentificador = [
+     "Escuro/a",
+     "Elétrico/a",
+     "Invisível",
+     "Radioativo/a",
+     "Voador/a",
+     "De aço",
+     "Aterrozidor/a",
+     "Do submundo",
+     "Invencível",
+     "Tempestade",
+     "Galáctico/a",
+     "Elástico/a",
+     "Magnético/a",
+     "Estelar",
+     "Noturno/a",
+     "Iluminado/a",
+     "Aterrador/a",
+     "Brilhante/a",
+     "De Fogo",
+     "Poderoso/a",
+     "Derrota mundos",
+     "De ferro",
+     "Atômico/a",
+     "Rasga Céus",
+     "Psíquico/a",
+     "Implacável",
 ];
 
-echo "
+
+
+function GerarNomeDeVilão($primeiroIdentificador, $segundoIdentificador) {
+
+
+    $nascimentoAleatório = sizeof($primeiroIdentificador);
+    $nascimentoAleatório = rand(0, $nascimentoAleatório -1 );
+
+
+    $letraDeNomeAleatório = sizeof($segundoIdentificador);
+    $letraDeNomeAleatório = rand(0, $letraDeNomeAleatório -1 );
+
+    echo "$primeiroIdentificador[$nascimentoAleatório] $segundoIdentificador[$letraDeNomeAleatório]";
+
+};
+
+?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Atividade 7 - lista de vetores</title>
 
 <style>
 
-*
-{
-    box-sizing: border-box;
-}
 .container{
-    width: 500px;
-    height:auto;
+    width: 1024px;  
+    height: 500px;
     display: flex; 
-    flex-direction:row;
     margin: 0 auto;
-    flex-wrap: wrap; 
+    text-align:center;
+    align-items: center;
+    justify-content: center;
+
 }
 
-.containeir > div{
-    flex: 1 0 50%;
-    text-align: center;
-    padding: 10px;
+body{
+  box-sizing: border-box;
+  background-color: rgba(121,7,242,.75);
+  color: #ffffff;
+  width:100%;
+  height:100%;
 }
 
-.container > div:first-child
-{
-    flex: 0 1 100%;
-}
+div h1{
+font-size: 3.5rem;
+font-weight: bold;
+} 
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
+div h3{
+font-size: 2.75rem;
+} 
 
+div el{
+    font-family: Verdana, sans-serif;
+    font-size: 2.0rem;
+    font-weight: 500;
+}
 
 </style>
 
-
-<div class='container'>
-    <div>    
-            <h1> Descubra seu nome de vilão/vilã </h1>    
+</head>
+<body>
+    <div class='container'>
+        <div>    
+            <h1> Gerador aleatório de nome de vilão/vilã </h1>
+            <h3>Parabéns(?), você é o/a:</h3>
+            <el>"<?= GerarNomeDeVilão($primeiroIdentificador, $segundoIdentificador)?>"</el>         
+        </div>
     </div>
-    <div>   
-            <h3>Seu mês de nascimento:</h3> 
-        <ul>";
-            foreach($mesDeNascimento as $mes => $value)
-            {
-              echo "<li><b>$mes</b>: $mesDeNascimento[$mes]</li>";
-            }   
-echo"   </ul>
-   </div>
-    <div>   
-            <h3>Primeira letra do seu nome:</h3>     
-        <ul>";
-            foreach($primeiraLetraDoNome as $letra => $value)
-            {
-            echo "<li><b>$letra</b>: $primeiraLetraDoNome[$letra]</li>";
-            }   
-echo"   </ul>  
-    </div>
-</div>
+</body>
+</html>
 
-";
+
+
