@@ -17,13 +17,12 @@ if(isset($_POST['diaNascimento'],$_POST['mesNascimento'],$_POST['anoNascimento']
 
 function Somatorio($numero){
 
-    $numeroFor = $numero;
     $numeroAsssitente=null;
 
-for ($i=0; $i<$numeroFor;$i++){
+for ($i=$numero; $i>0;$i--){
 
-    $numeroAsssitente += $numero;
-    $numero--;
+    $numeroAsssitente += $i;
+
 
 }
 return $numeroAsssitente;
